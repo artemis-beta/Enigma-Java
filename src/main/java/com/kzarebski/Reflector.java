@@ -78,7 +78,7 @@ class Reflector {
         return new Reflector(name, mapping);
     }
 
-    public static Reflector Reflectors(Character type) {
+    public static Reflector Reflectors(Character type) throws Exception {
         if(type == 'B') return Reflector_B();
         else if(type == 'C') return Reflector_C();
         throw new Exception("Unrecognised reflector type '"+type+"'");

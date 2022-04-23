@@ -39,14 +39,14 @@ public class Plugboard {
         return plug_board_dict.get(letter);
     }
 
-    public Character plugboard_conversion_inv(Character letter) {
+    public Character plugboard_conversion_inv(Character letter) throws Exception {
         for(Entry<Character, Character> entry : plug_board_dict.entrySet()) {
             if(entry.getValue() == letter) return entry.getKey();
         }
         throw new InternalErrorException("Could not find inverse conversion of character '"+letter+"'");
     }
 
-    public void swap_letter_wiring(Character letter_1, Character letter_2) {
+    public void swap_letter_wiring(Character letter_1, Character letter_2) throws Exception {
         Character init_1 = plugboard_conversion(letter_1);
         Character init_2 = plugboard_conversion_inv(letter_2);
         plug_board_dict.put(letter_1, letter_2);

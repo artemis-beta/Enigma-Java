@@ -14,7 +14,7 @@ public class Enigma {
     Reflector reflector;
     Plugboard plugboard;
 
-    public Enigma(Vector<Integer> rotor_list, Character reflector, String enigma_type) {
+    public Enigma(Vector<Integer> rotor_list, Character reflector, String enigma_type) throws Exception {
         this.enigma_type = enigma_type;
         this.rotor_ids = rotor_list;
         this.reflector = Reflector.Reflectors(reflector);
@@ -94,7 +94,7 @@ public class Enigma {
         return rotors.get(name).get_rotor_conversion(letter);
     }
 
-    Character get_rotor_conv_inv(String name, Character letter) {
+    Character get_rotor_conv_inv(String name, Character letter) throws Exception {
         return rotors.get(name).get_rotor_conversion_inv(letter);
     }
 
@@ -123,7 +123,7 @@ public class Enigma {
         return reflector.reflector_conversion(letter);
     }
 
-    public Character type_letter(Character letter) {
+    public Character type_letter(Character letter) throws Exception {
         Character l = Character.toUpperCase(letter);
         Character cipher = plugboard.plugboard_conversion(letter);
         move_rotor(rotor_labels.get(rotor_labels.size()-1), 1);
@@ -172,7 +172,7 @@ public class Enigma {
         return cipher_out;
     }
 
-    public String type_phrase(String phrase) {
+    public String type_phrase(String phrase) throws Exception {
         String temp = phrase.replaceAll("\\s", "");
         Integer remainder = (phrase.length() % 5 != 0) ? 5 - phrase.length() % 5 : 0;
 
@@ -207,7 +207,7 @@ public class Enigma {
         }
     }
 
-    public void rewire_plugboard(Character letter_1, Character letter_2) {
+    public void rewire_plugboard(Character letter_1, Character letter_2) throws Exception {
         plugboard.swap_letter_wiring(letter_1, letter_2);
     }
 }

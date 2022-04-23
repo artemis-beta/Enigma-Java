@@ -54,7 +54,7 @@ public class Rotor {
         return this.wiring.get(i);
     }
 
-    Integer get_input_terminal(char letter) {
+    Integer get_input_terminal(char letter) throws Exception {
         Integer i = alpha_index(letter);
         for(int j = 0; j < this.wiring.size(); j++) {
             if(i == j) {
@@ -70,7 +70,7 @@ public class Rotor {
         return this.alpha[this.wiring.get(i)];
     }
 
-    Character get_rotor_conversion_inv(Character letter) {
+    Character get_rotor_conversion_inv(Character letter) throws Exception {
         Integer i = alpha_index(letter);
 
         for(int j = 0; j < this.wiring.size(); ++j)
@@ -370,7 +370,7 @@ public class Rotor {
         return new Rotor(label, notches, wiring);
     }
 
-    public static Rotor Rotors(Integer rotor_type) {
+    public static Rotor Rotors(Integer rotor_type) throws Exception {
         if(rotor_type > 8 || rotor_type < 1) {
             throw new Exception("Could not find Rotor of type '"+rotor_type+"'");
         }
