@@ -116,6 +116,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
       </plugin>
+      <!--
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -183,6 +184,7 @@
           </execution>
         </executions>
       </plugin>
+      -->
     </plugins>
   </build>
   <reporting>
